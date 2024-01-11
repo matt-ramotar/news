@@ -3,6 +3,12 @@ agp = "8.2.0"
 jetbrains-compose = "1.5.11"
 kotlin = "1.9.21"
 ksp = "1.9.21-1.0.15"
+news = "1.0.0"
+
+[libraries]
+android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
