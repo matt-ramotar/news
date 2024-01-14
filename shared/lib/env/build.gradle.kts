@@ -44,9 +44,8 @@ buildkonfig {
     }
 
     val scoopApiTokenKey = "SCOOP_API_TOKEN"
-    val scoopApiTokenValue = props[scoopApiTokenKey].toString()
 
     defaultConfigs {
-        buildConfigField(STRING, scoopApiTokenKey, scoopApiTokenValue)
+        buildConfigField(STRING, scoopApiTokenKey, props[scoopApiTokenKey].toString())
     }
 }
