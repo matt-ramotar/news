@@ -7,6 +7,8 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+        maven("https://oss.sonatype.org/content/repositories/snapshots/")
     }
 }
 
@@ -15,8 +17,24 @@ dependencyResolutionManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+        maven("https://oss.sonatype.org/content/repositories/snapshots/")
     }
 }
 
 rootProject.name = "news"
 
+// Shared > Core
+include(":shared:core:di:api")
+include(":shared:core:di:impl")
+include(":shared:core:navigation:api")
+include(":shared:core:navigation:impl")
+
+// Shared > Feat
+include(":shared:feat:homeTab:api")
+include(":shared:feat:homeTab:impl")
+
+// Shared > Lib
+include(":shared:lib:env")
+include(":shared:lib:httpClient")
+include(":shared:lib:scoop")
