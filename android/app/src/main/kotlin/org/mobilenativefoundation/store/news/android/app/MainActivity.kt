@@ -14,6 +14,7 @@ import org.mobilenativefoundation.store.news.shared.core.navigation.api.Navigati
 import org.mobilenativefoundation.store.news.shared.create
 import org.mobilenativefoundation.store.news.shared.lib.composableModel.ComposableModelStore
 import org.mobilenativefoundation.store.news.shared.lib.composableModel.compose.LocalComposableModelStore
+import org.mobilenativefoundation.store.news.shared.lib.theme.NewsTheme
 
 @Inject
 class MainActivity : ComponentActivity() {
@@ -34,7 +35,9 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             CompositionLocalProvider(LocalComposableModelStore provides composableModelStore) {
-                navigationComponent.tabNavigator()
+                NewsTheme {
+                    navigationComponent.tabNavigator()
+                }
             }
         }
     }

@@ -50,6 +50,7 @@ dependencies {
         implementation(env)
         implementation(res)
         implementation(scoop)
+        implementation(theme)
     }
 }
 
