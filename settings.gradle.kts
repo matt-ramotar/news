@@ -24,6 +24,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "news"
 
+// Android > App
+include(":android:app")
+
 // Shared > Core
 include(":shared:core:di:api")
 include(":shared:core:di:impl")
@@ -38,3 +41,4 @@ include(":shared:feat:homeTab:impl")
 include(":shared:lib:env")
 include(":shared:lib:httpClient")
 include(":shared:lib:scoop")
+include(":shared:lib:res")

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Scoop</string>
+    <string name="account_screen_title">Account</string>
+    <string name="discover_screen_title">Discover</string>
+    <string name="discovery_icon_description">Discovery</string>
+    <string name="home_icon_description">Home</string>
+    <string name="home_screen_title">Home</string>
+</resources>
