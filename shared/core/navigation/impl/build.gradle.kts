@@ -19,6 +19,7 @@ kotlin {
 
                 api(projects.shared.core.navigation.api)
                 implementation(projects.shared.lib.res)
+                implementation(projects.shared.feat.homeTab.impl)
             }
         }
     }

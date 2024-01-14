@@ -1,3 +1,3 @@
 # News
 
-![App logo](.github/assets/logo.png)
+![App logo](.github/assets/logo.webp)

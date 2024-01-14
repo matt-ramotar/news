@@ -15,15 +15,15 @@ import cafe.adriel.voyager.navigator.tab.CurrentTab
 import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
 import cafe.adriel.voyager.navigator.tab.Tab
 import me.tatarka.inject.annotations.Inject
+import org.mobilenativefoundation.store.news.shared.HomeTab
 import org.mobilenativefoundation.store.news.shared.core.navigation.api.TabNavigator
-import org.mobilenativefoundation.store.news.shared.lib.res.drawable.homeIcon
 import org.mobilenativefoundation.store.news.shared.lib.res.drawable.homeIconLight
 import cafe.adriel.voyager.navigator.tab.TabNavigator as VoyagerTabNavigator
 
 
 @Inject
 class RealTabNavigator(
-    private val homeTab: Tab
+    private val homeTab: HomeTab
 ) : TabNavigator {
     @Composable
     override fun invoke() {
@@ -61,11 +61,16 @@ class RealTabNavigator(
 
     @Composable
     private fun Tab.icon(isSelected: Boolean): Painter {
-        // TODO(mramotar)
-        return if (isSelected) {
-            homeIcon
-        } else {
-            homeIconLight
+        return when (this) {
+            is HomeTab -> {
+                if (isSelected) {
+                    this.options.icon!!
+                } else {
+                    homeIconLight
+                }
+            }
+
+            else -> throw Exception()
         }
     }
 }

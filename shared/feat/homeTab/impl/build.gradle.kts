@@ -11,9 +11,15 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
+                implementation(compose.material3)
+                implementation(libs.coroutines.core)
                 implementation(libs.kotlinInject.runtime)
+                implementation(libs.voyager.tabNavigator)
+
                 api(projects.shared.core.navigation.api)
+                api(projects.shared.feat.homeTab.api)
                 implementation(projects.shared.lib.scoop)
+                implementation(projects.shared.lib.res)
             }
         }
 
