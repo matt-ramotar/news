@@ -22,31 +22,33 @@ android {
 }
 
 dependencies {
+
     implementation(compose.runtime)
     implementation(compose.material3)
-
-    implementation(libs.coroutines.android)
-    implementation(libs.serialization.core)
-    implementation(libs.serialization.json)
-
     implementation(libs.androidx.appCompat)
     implementation(libs.androidx.compose.activity)
     implementation(libs.androidx.core)
-
+    implementation(libs.coroutines.android)
     implementation(libs.kotlinInject.runtime)
-    ksp(libs.kotlinInject.compiler)
-
+    implementation(libs.serialization.core)
+    implementation(libs.serialization.json)
     implementation(libs.voyager.navigator)
 
-//    implementation(projects.shared.lib.skeleton)
-//    implementation(projects.shared.lib.theme)
-//    implementation(projects.shared.lib.composableModel)
-//    implementation(projects.shared.lib.sdk.v1)
-//    implementation(projects.shared.lib.res)
-//
-//    implementation(projects.shared.core.impl)
-//    implementation(projects.shared.feat.auth.impl)
-//    implementation(projects.shared.feat.splash.impl)
+    ksp(libs.kotlinInject.compiler)
+
+    with(projects.shared.core) {
+        implementation(navigation.impl)
+    }
+
+    with(projects.shared.feat) {
+        implementation(homeTab.impl)
+    }
+
+    with(projects.shared.lib) {
+        implementation(env)
+        implementation(res)
+        implementation(scoop)
+    }
 }
 
 ksp {

@@ -18,6 +18,7 @@ kotlin {
                 implementation(libs.voyager.screenModel)
 
                 api(projects.shared.core.navigation.api)
+                implementation(projects.shared.lib.res)
             }
         }
     }
