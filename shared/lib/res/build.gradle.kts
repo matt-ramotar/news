@@ -1,3 +1,4 @@
+
 plugins {
     id("plugin.store.news.android.library")
     id("plugin.store.news.kotlin.multiplatform")
@@ -9,12 +10,14 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(compose.runtime)
+                implementation(compose.material3)
+                implementation(libs.coroutines.core)
+                implementation(libs.kotlinInject.runtime)
             }
         }
     }
 }
 
 android {
-    namespace = "org.mobilenativefoundation.store.news.shared.core.navigation.api"
+    namespace = "org.mobilenativefoundation.store.news.shared.lib.res"
 }
