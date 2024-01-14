@@ -2,7 +2,7 @@ plugins {
     `kotlin-dsl`
 }
 
-group = "org.mobilenativefoundation.store.news.tooling.plugins"
+group = "org.mobilenativefoundation.store.news"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -22,27 +22,27 @@ gradlePlugin {
     plugins {
         register("androidApplicationPlugin") {
             id = "plugin.store.news.android.application"
-            implementationClass = "org.mobilenativefoundation.store.tooling.plugins.AndroidApplicationConventionPlugin"
+            implementationClass = "org.mobilenativefoundation.store.news.tooling.plugins.AndroidApplicationConventionPlugin"
         }
 
         register("androidComposePlugin") {
             id = "plugin.store.news.android.compose"
-            implementationClass = "org.mobilenativefoundation.store.tooling.plugins.AndroidComposeConventionPlugin"
+            implementationClass = "org.mobilenativefoundation.store.news.tooling.plugins.AndroidComposeConventionPlugin"
         }
 
         register("androidLibraryPlugin") {
             id = "plugin.store.news.android.library"
-            implementationClass = "org.mobilenativefoundation.store.tooling.plugins.AndroidLibraryConventionPlugin"
+            implementationClass = "org.mobilenativefoundation.store.news.tooling.plugins.AndroidLibraryConventionPlugin"
         }
 
         register("kotlinAndroidLibraryPlugin") {
             id = "plugin.store.news.kotlin.android.library"
-            implementationClass = "org.mobilenativefoundation.store.tooling.plugins.KotlinAndroidLibraryConventionPlugin"
+            implementationClass = "org.mobilenativefoundation.store.news.tooling.plugins.KotlinAndroidLibraryConventionPlugin"
         }
 
         register("kotlinMultiplatformPlugin") {
             id = "plugin.store.news.kotlin.multiplatform"
-            implementationClass = "org.mobilenativefoundation.store.tooling.plugins.KotlinMultiplatformConventionPlugin"
+            implementationClass = "org.mobilenativefoundation.store.news.tooling.plugins.KotlinMultiplatformConventionPlugin"
         }
     }
 }

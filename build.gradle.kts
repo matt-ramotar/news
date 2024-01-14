@@ -3,6 +3,8 @@ buildscript {
         gradlePluginPortal()
         google()
         mavenCentral()
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+        maven("https://oss.sonatype.org/content/repositories/snapshots")
     }
 }
 
@@ -14,6 +16,7 @@ plugins {
     alias(libs.plugins.multiplatform) apply false
     alias(libs.plugins.serialization) apply false
     alias(libs.plugins.compose) apply false
+    alias(libs.plugins.buildkonfig) apply false
 }
 
 
