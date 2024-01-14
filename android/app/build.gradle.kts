@@ -38,6 +38,7 @@ dependencies {
 
     with(projects.shared.core) {
         implementation(navigation.impl)
+        implementation(di.impl)
     }
 
     with(projects.shared.feat) {
@@ -45,6 +46,7 @@ dependencies {
     }
 
     with(projects.shared.lib) {
+        implementation(composableModel)
         implementation(env)
         implementation(res)
         implementation(scoop)

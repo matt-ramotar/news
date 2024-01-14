@@ -12,14 +12,19 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(compose.material3)
+                implementation(libs.coil)
+                implementation(libs.coil.compose)
+                implementation(libs.coil.network)
                 implementation(libs.coroutines.core)
                 implementation(libs.kotlinInject.runtime)
                 implementation(libs.voyager.tabNavigator)
 
                 api(projects.shared.core.navigation.api)
                 api(projects.shared.feat.homeTab.api)
+                implementation(projects.shared.lib.httpClient)
                 implementation(projects.shared.lib.scoop)
                 implementation(projects.shared.lib.res)
+                implementation(projects.shared.lib.composableModel)
             }
         }
 

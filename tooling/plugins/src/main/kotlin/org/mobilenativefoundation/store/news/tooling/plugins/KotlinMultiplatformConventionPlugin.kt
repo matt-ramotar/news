@@ -1,7 +1,5 @@
 package org.mobilenativefoundation.store.news.tooling.plugins
 
-import org.mobilenativefoundation.store.news.tooling.extensions.configureKotlin
-import org.mobilenativefoundation.store.news.tooling.extensions.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.configurationcache.extensions.capitalized
@@ -12,6 +10,8 @@ import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+import org.mobilenativefoundation.store.news.tooling.extensions.configureKotlin
+import org.mobilenativefoundation.store.news.tooling.extensions.libs
 
 class KotlinMultiplatformConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
@@ -60,7 +60,9 @@ class KotlinMultiplatformConventionPlugin : Plugin<Project> {
     }
 }
 
-fun Project.addKspDependencyForAllTargets(dependencyNotation: Any) = addKspDependencyForAllTargets("", dependencyNotation)
+fun Project.addKspDependencyForAllTargets(dependencyNotation: Any) =
+    addKspDependencyForAllTargets("", dependencyNotation)
+
 private fun Project.addKspDependencyForAllTargets(
     configurationNameSuffix: String,
     dependencyNotation: Any,
