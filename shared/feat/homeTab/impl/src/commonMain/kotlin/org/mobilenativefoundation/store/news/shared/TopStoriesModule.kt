@@ -1,7 +1,5 @@
 package org.mobilenativefoundation.store.news.shared
 
-import ai.wandering.scoop.v1.models.PopulatedStory
-import ai.wandering.scoop.v1.models.Scoop
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,6 +14,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
+import org.mobilenativefoundation.store.news.shared.models.PopulatedStory
+import org.mobilenativefoundation.store.news.shared.models.Scoop
 
 class TopStoriesModule {
     @Composable
@@ -68,11 +68,11 @@ class TopStoriesModule {
     @Composable
     private fun SubStory(populatedStory: PopulatedStory, modifier: Modifier = Modifier) {
         Row(modifier = modifier) {
-            populatedStory.assocs?.publication?.logoUrl?.let { url ->
+            populatedStory.assocs.publication?.logoUrl?.let { url ->
                 AsyncImage(model = url, contentDescription = null)
             }
 
-            Text(populatedStory.story!!.title)
+            Text(populatedStory.story.title)
         }
     }
 

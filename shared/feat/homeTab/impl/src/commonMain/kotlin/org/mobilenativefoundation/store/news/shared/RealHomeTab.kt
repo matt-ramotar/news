@@ -1,10 +1,9 @@
 package org.mobilenativefoundation.store.news.shared
 
-import ai.wandering.scoop.v1.models.Feed
-import ai.wandering.scoop.v1.models.FeedModule
-import ai.wandering.scoop.v1.models.TopStories
+
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.remember
@@ -13,6 +12,8 @@ import me.tatarka.inject.annotations.Inject
 import org.mobilenativefoundation.store.news.shared.lib.composableModel.compose.rememberComposableModel
 import org.mobilenativefoundation.store.news.shared.lib.res.drawable.homeIcon
 import org.mobilenativefoundation.store.news.shared.lib.res.values.homeScreenTitle
+import org.mobilenativefoundation.store.news.shared.models.Feed
+import org.mobilenativefoundation.store.news.shared.models.FeedModule
 
 @Inject
 class RealHomeTab : HomeTab {
@@ -63,6 +64,7 @@ class RealHomeTab : HomeTab {
     @Composable
     private fun ErrorView() {
         // TODO(mramotar)
+        Text("Error")
     }
 
     @Composable
@@ -70,42 +72,28 @@ class RealHomeTab : HomeTab {
         LazyColumn {
             feed.modules.forEach { module ->
                 item {
-                    when (val feedModule = module.type) {
-                        is FeedModule.Type.EditorsPick -> TODO()
-                        is FeedModule.Type.ForYou -> TODO()
-                        is FeedModule.Type.TopStories -> {
+                    when (module) {
+                        is FeedModule.EditorsPick -> TODO()
+                        is FeedModule.ForYou -> TODO()
+                        is FeedModule.TopStories.Global -> {
                             val topStoriesModule = TopStoriesModule()
-
-                            when (val topStoriesFeedModule = feedModule.value.type) {
-                                is TopStories.Type.Category -> {
-                                    topStoriesFeedModule.value.scoop?.let { scoop ->
-                                        topStoriesModule(scoop)
-                                    }
-                                }
-
-                                is TopStories.Type.Global -> {
-                                    topStoriesFeedModule.value.scoop?.let { scoop ->
-                                        topStoriesModule(scoop)
-                                    }
-                                }
-
-                                is TopStories.Type.Local -> {
-                                    topStoriesFeedModule.value.scoop?.let { scoop ->
-                                        topStoriesModule(scoop)
-                                    }
-                                }
-
-                                is TopStories.Type.Us -> {
-                                    topStoriesFeedModule.value.scoop?.let { scoop ->
-                                        topStoriesModule(scoop)
-                                    }
-                                }
-
-                                null -> ErrorView()
-                            }
+                            topStoriesModule(module.scoop)
                         }
 
-                        null -> ErrorView()
+                        is FeedModule.TopStories.US -> {
+                            val topStoriesModule = TopStoriesModule()
+                            topStoriesModule(module.scoop)
+                        }
+
+                        is FeedModule.TopStories.Local -> {
+                            val topStoriesModule = TopStoriesModule()
+                            topStoriesModule(module.scoop)
+                        }
+
+                        is FeedModule.TopStories.Category -> {
+                            val topStoriesModule = TopStoriesModule()
+                            topStoriesModule(module.scoop)
+                        }
                     }
                 }
             }

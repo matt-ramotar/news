@@ -17,6 +17,8 @@ kotlin {
                 implementation(libs.coil.network)
                 implementation(libs.coroutines.core)
                 implementation(libs.kotlinInject.runtime)
+                implementation(libs.store)
+                implementation(libs.store.cache)
                 implementation(libs.voyager.tabNavigator)
 
                 api(projects.shared.core.navigation.api)

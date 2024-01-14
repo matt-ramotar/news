@@ -9,7 +9,6 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(libs.voyager.tabNavigator)
-                api(projects.shared.lib.scoop)
             }
         }
     }

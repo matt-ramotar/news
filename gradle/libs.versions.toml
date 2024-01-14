@@ -19,6 +19,7 @@ ksp = "1.9.21-1.0.15"
 lint = "1.2.0"
 scoop = "1.0.0-alpha03"
 serialization = "1.5.1"
+store = "5.0.0"
 voyager = "1.0.0"
 
 [libraries]
@@ -51,6 +52,8 @@ lint-compose = { module = "com.slack.lint.compose:compose-lint-checks", version.
 serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "serialization" }
 serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
 scoop-sdk-kotlin = { module = "ai.wandering.scoop:v1", version.ref = "scoop" }
+store = { module = "org.mobilenativefoundation.store:store5", version.ref = "store" }
+store-cache = { module = "org.mobilenativefoundation.store:cache5", version.ref = "store" }
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
 voyager-screenModel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "voyager" }
 voyager-bottomSheetNavigator = { module = "cafe.adriel.voyager:voyager-bottom-sheet-navigator", version.ref = "voyager" }

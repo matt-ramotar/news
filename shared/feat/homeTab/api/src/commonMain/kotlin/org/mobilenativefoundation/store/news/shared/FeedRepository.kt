@@ -1,8 +1,13 @@
 package org.mobilenativefoundation.store.news.shared
 
-import ai.wandering.scoop.v1.models.Feed
-import ai.wandering.scoop.v1.models.GetFeedArgs
+
+import org.mobilenativefoundation.store.news.shared.models.Feed
+import org.mobilenativefoundation.store.news.shared.models.FeedRefreshStrategy
+import org.mobilenativefoundation.store.news.shared.models.GetFeedArgs
 
 interface FeedRepository {
-    suspend fun getFeed(args: GetFeedArgs): Feed
+    suspend fun getFeed(
+        args: GetFeedArgs,
+        refreshStrategy: FeedRefreshStrategy,
+    ): Feed
 }

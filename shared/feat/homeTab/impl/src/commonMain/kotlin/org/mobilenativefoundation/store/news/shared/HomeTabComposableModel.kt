@@ -1,11 +1,13 @@
 package org.mobilenativefoundation.store.news.shared
 
-import ai.wandering.scoop.v1.models.CursorDirection
-import ai.wandering.scoop.v1.models.Feed
-import ai.wandering.scoop.v1.models.GetFeedArgs
+
 import kotlinx.coroutines.launch
 import me.tatarka.inject.annotations.Inject
 import org.mobilenativefoundation.store.news.shared.lib.composableModel.ComposableModel
+import org.mobilenativefoundation.store.news.shared.models.CursorDirection
+import org.mobilenativefoundation.store.news.shared.models.Feed
+import org.mobilenativefoundation.store.news.shared.models.FeedRefreshStrategy
+import org.mobilenativefoundation.store.news.shared.models.GetFeedArgs
 
 sealed interface HomeTabState {
     data object Initial : HomeTabState
@@ -26,14 +28,14 @@ class HomeTabComposableModel(
 
     init {
         coroutineScope.launch {
-            loadFeed {
+            loadFeed(FeedRefreshStrategy.CACHE_FIRST) {
                 setState { HomeTabState.Loading }
             }
         }
     }
 
     suspend fun refresh(state: HomeTabState.Loaded) {
-        loadFeed {
+        loadFeed(FeedRefreshStrategy.FORCE_REFRESH) {
             setState { HomeTabState.Refreshing(state.feed) }
         }
     }
@@ -44,11 +46,15 @@ class HomeTabComposableModel(
         direction = CursorDirection.OLDER
     )
 
-    private suspend fun loadFeed(args: GetFeedArgs = defaultArgs(), onLoad: () -> Unit) {
+    private suspend fun loadFeed(
+        refreshStrategy: FeedRefreshStrategy,
+        args: GetFeedArgs = defaultArgs(),
+        onLoad: () -> Unit
+    ) {
         onLoad()
 
         try {
-            val feed = feedRepository.getFeed(args)
+            val feed = feedRepository.getFeed(args, refreshStrategy)
             setState { HomeTabState.Loaded(feed) }
         } catch (error: Throwable) {
             setState { HomeTabState.Failed }
