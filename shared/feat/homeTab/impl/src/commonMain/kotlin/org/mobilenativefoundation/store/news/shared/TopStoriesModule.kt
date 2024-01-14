@@ -7,11 +7,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import org.mobilenativefoundation.store.news.shared.models.PopulatedStory
@@ -31,7 +31,12 @@ class TopStoriesModule {
                     )
                 }
 
-                BreakingNewsBanner(modifier = Modifier.fillMaxWidth().background(Color.Red).padding(8.dp))
+                BreakingNewsBanner(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(MaterialTheme.colorScheme.primaryContainer)
+                        .padding(8.dp)
+                )
 
                 MainHeadline(modifier = Modifier.fillMaxWidth().padding(8.dp), scoop = scoop)
 
@@ -53,13 +58,17 @@ class TopStoriesModule {
     @Composable
     private fun BreakingNewsBanner(modifier: Modifier = Modifier) {
         Row(modifier = modifier) {
-            Text("Breaking")
+            Text(
+                "Breaking".uppercase(),
+                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                style = MaterialTheme.typography.titleMedium
+            )
         }
     }
 
     @Composable
     private fun MainHeadline(scoop: Scoop, modifier: Modifier = Modifier) {
-        Row(modifier = modifier) {
+        Column(modifier = modifier) {
             Text(scoop.title)
             Text(scoop.summary)
         }
@@ -67,7 +76,7 @@ class TopStoriesModule {
 
     @Composable
     private fun SubStory(populatedStory: PopulatedStory, modifier: Modifier = Modifier) {
-        Row(modifier = modifier) {
+        Column(modifier = modifier) {
             populatedStory.assocs.publication?.logoUrl?.let { url ->
                 AsyncImage(model = url, contentDescription = null)
             }
