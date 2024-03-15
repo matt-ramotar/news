@@ -1,7 +1,6 @@
 plugins {
     id("plugin.store.news.android.library")
     id("plugin.store.news.kotlin.multiplatform")
-    alias(libs.plugins.serialization)
     alias(libs.plugins.compose)
 }
 
@@ -9,8 +8,8 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(compose.material3)
-                implementation(libs.coroutines.core)
+                api(compose.runtime)
+                api(libs.coroutines.core)
                 implementation(libs.kotlinInject.runtime)
             }
         }
@@ -18,9 +17,5 @@ kotlin {
 }
 
 android {
-    namespace = "org.mobilenativefoundation.store.news.shared.lib.res"
-
-    lint {
-        baseline = file("lint-baseline.xml")
-    }
+    namespace = "org.mobilenativefoundation.store.news.shared.lib.composableModel"
 }

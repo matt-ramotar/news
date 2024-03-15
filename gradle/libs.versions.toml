@@ -4,6 +4,7 @@ androidx-activity = "1.8.2"
 androidx-core = "1.12.0"
 androidx-material3 = "1.1.2"
 buildkonfig = "0.15.1"
+coil = "3.0.0-alpha01"
 compose-bom = "2023.10.01"
 compose-constraintlayout = "1.0.1"
 compose-compiler = "1.5.6"
@@ -16,8 +17,9 @@ kotlininject = "0.6.3"
 ktor = "2.3.7"
 ksp = "1.9.21-1.0.15"
 lint = "1.2.0"
-scoop = "1.0.0-alpha02"
+scoop = "1.0.0-alpha03"
 serialization = "1.5.1"
+store = "5.0.0"
 voyager = "1.0.0"
 
 [libraries]
@@ -34,6 +36,9 @@ androidx-compose-constraintlayout = { module = "androidx.constraintlayout:constr
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "androidx-material3" }
 androidx-compose-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "compose-runtime" }
 androidx-core = { module = "androidx.core:core-ktx", version.ref = "androidx-core" }
+coil = { module = "io.coil-kt.coil3:coil", version.ref = "coil" }
+coil-compose = {module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
+coil-network = {module = "io.coil-kt.coil3:coil-network", version.ref = "coil" }
 coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinInject-compiler = { module = "me.tatarka.inject:kotlin-inject-compiler-ksp", version.ref = "kotlininject" }
@@ -47,6 +52,8 @@ lint-compose = { module = "com.slack.lint.compose:compose-lint-checks", version.
 serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "serialization" }
 serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
 scoop-sdk-kotlin = { module = "ai.wandering.scoop:v1", version.ref = "scoop" }
+store = { module = "org.mobilenativefoundation.store:store5", version.ref = "store" }
+store-cache = { module = "org.mobilenativefoundation.store:cache5", version.ref = "store" }
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
 voyager-screenModel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "voyager" }
 voyager-bottomSheetNavigator = { module = "cafe.adriel.voyager:voyager-bottom-sheet-navigator", version.ref = "voyager" }

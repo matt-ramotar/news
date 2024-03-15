@@ -38,7 +38,9 @@ include(":shared:feat:homeTab:api")
 include(":shared:feat:homeTab:impl")
 
 // Shared > Lib
+include(":shared:lib:composableModel")
 include(":shared:lib:env")
 include(":shared:lib:httpClient")
-include(":shared:lib:scoop")
 include(":shared:lib:res")
+include(":shared:lib:scoop")
+include(":shared:lib:theme")

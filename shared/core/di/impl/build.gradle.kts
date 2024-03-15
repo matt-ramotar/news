@@ -13,7 +13,9 @@ kotlin {
             dependencies {
                 implementation(libs.kotlinInject.runtime)
 
-                api(projects.shared.core.navigation.api)
+                implementation(projects.shared.core.navigation.impl)
+                implementation(projects.shared.feat.homeTab.impl)
+                implementation(projects.shared.lib.composableModel)
             }
         }
     }
